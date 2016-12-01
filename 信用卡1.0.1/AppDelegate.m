@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  信用卡1.0.1
+//  信用卡1.0
 //
-//  Created by 曹鹏飞 on 15/9/8.
-//  Copyright © 2015年 CPF. All rights reserved.
+//  Created by CPF on 15/9/5.
+//  Copyright (c) 2015年 CPF. All rights reserved.
 //
 
 #import "AppDelegate.h"
