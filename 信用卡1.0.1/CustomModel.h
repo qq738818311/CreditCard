@@ -13,4 +13,5 @@
 @property(nonatomic,copy)NSString * edu;
 @property(nonatomic,copy)NSString * qiankuan;
 @property(nonatomic,copy)NSString * imageName;
+@property (nonatomic, copy) NSString *bankName;
 @end

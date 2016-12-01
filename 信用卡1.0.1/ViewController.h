@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
++ (NSMutableAttributedString *)handelWithString:(NSString *)str andColor:(UIColor *)color;
 
 @end
 

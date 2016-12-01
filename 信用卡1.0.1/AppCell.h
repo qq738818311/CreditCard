@@ -8,19 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomModel.h"
+
 @interface AppCell : UITableViewCell<UITextFieldDelegate>
 {
     UIImageView * bgImageView;
-    UIImageView * imageView;
     UILabel * titleLabel;
-    NSUserDefaults * user;
-
 }
 @property(nonatomic,copy)NSString * string;
 @property(nonatomic,strong)UITextField * edu;
 @property(nonatomic,strong)UITextField * qiankuan;
 @property(nonatomic,strong)UITextField * yue;
+@property (nonatomic, strong) UIButton *titleIconButton;
+@property (nonatomic, strong) UIButton *titleButton;
 //@property(nonatomic,assign)UITextField * qiankuan;
 //@property(nonatomic,assign)UITextField * yue;
+
+@property (nonatomic, copy) void(^showSmsSendExplain)();
+@property (nonatomic, copy) void(^cardNumberButtonClick)();
+
 -(void)configWithModel:(CustomModel *)model;
 @end

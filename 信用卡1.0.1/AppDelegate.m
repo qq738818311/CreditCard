@@ -16,7 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //启动页面延时2秒
+    [NSThread sleepForTimeInterval:2.0];
+    
+    [ToolClass registerIQKeyboard];
+    
     return YES;
 }
 
