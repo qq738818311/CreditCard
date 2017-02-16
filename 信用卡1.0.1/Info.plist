@@ -15,12 +15,20 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.0</string>
+	<string>1.2.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.2.0</string>
+	<key>LEPgyerApiKey</key>
+	<string>25ca80dbd2a141072e37590de146bba6</string>
+	<key>LEPgyerUKey</key>
+	<string>745a408791af3dd0df4bd4204242a084</string>
+	<key>LEPgyerUpdateNote</key>
+	<string>v1.2.1更新内容：开放Document文件读写权限</string>
 	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
