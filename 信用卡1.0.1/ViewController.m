@@ -127,7 +127,7 @@
 {
     [self.dataSource removeAllObjects];
     
-    NSArray * bankNameArray=@[@"广发银行",@"中国银行",@"交通银行",@"招商银行",@"中信银行",@"华夏银行",@"光大银行",@"兴业银行"];
+    NSArray * bankNameArray=@[@"广发银行",@"交通银行",@"招商银行",@"中信银行",@"华夏银行",@"光大银行",@"兴业银行",@"民生银行",];
     
     for (int i=0; i<bankNameArray.count; i++) {
         CustomModel * model=[[CustomModel alloc]init];
@@ -649,6 +649,10 @@
     }
     [self operationButtonUnSelected];
 }
+static UITextField * extracted(ViewController *object) {
+    return object->_tempTextField;
+}
+
 //计算器键盘逻辑(触发方法)
 -(void)buttonClick:(UIButton *)button
 {
@@ -1053,7 +1057,7 @@
         case 18://回键
         {
             [self operationButtonUnSelected];
-            [_tempTextField resignFirstResponder];
+            [extracted(self) resignFirstResponder];
         }
             break;
             
@@ -1361,6 +1365,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     /** TextFieldTextDidChange接收通知 */
     [NotificationCenter addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
+
 }
 //当键盘出现或改变时调用
 - (void)keyboardWillShow:(NSNotification *)aNotification
@@ -1384,22 +1389,11 @@
     [self createDataSource];
     NSLog(@"valueChange刷新数据");
     
-    //    NSLog(@"edu==%@",[self loadDataWithIdentifier:@"edu"]);
     _eduLabel.text=[NSString stringWithFormat:@" 额度:￥%@ ★",[self loadDataWithIdentifier:@"edu"]];
     
     _qiankuanLabel.text=[NSString stringWithFormat:@" 欠款:￥%@ ",[self loadDataWithIdentifier:@"qiankuan"]];
-//    [_qiankuanLabel sizeToFit];
-//    CGRect qiankuanLabelFrame=_qiankuanLabel.frame;
-//    _qiankuanLabel.frame=CGRectMake(60, 21, qiankuanLabelFrame.size.width, 22);
-//    _qiankuanLabel.layer.borderWidth = 0.5;
     
     _yueLabel.text=[NSString stringWithFormat:@" 余额:￥%.2f ",[self loadDataWithIdentifier:@"edu"].floatValue-[self loadDataWithIdentifier:@"qiankuan"].floatValue];
-//    [_yueLabel sizeToFit];
-//    CGRect yueLabelFrame=_yueLabel.frame;
-//    _yueLabel.frame=CGRectMake(qiankuanLabelFrame.size.width+60-1, 21, yueLabelFrame.size.width, 22);
-//    _yueLabel.layer.borderWidth = 0.5;
-    
-//    _eduLabel.frame=CGRectMake(60, 0, qiankuanLabelFrame.size.width+yueLabelFrame.size.width-1, 22);
 }
 
 /** 卡号输入框在text改变后调用通知 */

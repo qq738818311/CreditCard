@@ -68,13 +68,14 @@
         self.edu = [[UITextField alloc] init];
         self.edu.font = [UIFont systemFontOfSize:15];
         self.edu.leftView = titleLabel;
-        self.edu.leftViewMode = UITextFieldViewModeUnlessEditing;
+        self.edu.leftViewMode = UITextFieldViewModeAlways;
         self.edu.borderStyle = UITextBorderStyleNone;
         self.edu.clearButtonMode = UITextFieldViewModeWhileEditing;
         [self.contentView addSubview:self.edu];
         [self.edu mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_centerX);
             make.centerY.equalTo(_titleButton);
+            make.right.equalTo(bgImageView).offset(-10);
         }];
         
         UILabel * qiankuanLabel=[[UILabel alloc] initWithFrame:CGRectMake(5, 0, 45, 30)];
@@ -82,10 +83,13 @@
         qiankuanLabel.font=[UIFont systemFontOfSize:13];
         qiankuanLabel.textAlignment=NSTextAlignmentCenter;
         qiankuanLabel.attributedText = [ViewController handelWithString:@"欠款:￥" andColor:UIColorFromRGB(0xf94553)];
+        UIView *qiankuanView = [UIView new];
+        qiankuanView.frame = CGRectMake(0, 0, 50, 30);
+        [qiankuanView addSubview:qiankuanLabel];
         self.qiankuan=[[UITextField alloc] init];
         self.qiankuan.font=[UIFont systemFontOfSize:13];
-        self.qiankuan.leftView=qiankuanLabel;
-        self.qiankuan.leftViewMode=UITextFieldViewModeUnlessEditing;
+        self.qiankuan.leftView=qiankuanView;
+        self.qiankuan.leftViewMode=UITextFieldViewModeAlways;
         self.qiankuan.layer.borderColor = [UIColor lightGrayColor].CGColor;
         self.qiankuan.layer.borderWidth = 0.5;
         self.qiankuan.clearButtonMode=UITextFieldViewModeWhileEditing;
@@ -98,15 +102,18 @@
             make.height.mas_equalTo(30);
         }];
         
-        UILabel * yueLabel= [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 45, 30)];
+        UILabel * yueLabel= [[UILabel alloc] initWithFrame:CGRectMake(5, 0, 45, 30)];
         yueLabel.textColor = UIColorFromRGB(0x373535);
         yueLabel.font=[UIFont systemFontOfSize:13];
         yueLabel.textAlignment=NSTextAlignmentCenter;
         yueLabel.attributedText = [ViewController handelWithString:@"余额:￥" andColor:UIColorFromRGB(0x5cf65f)];
+        UIView *yueView = [UIView new];
+        yueView.frame = CGRectMake(0, 0, 50, 30);
+        [yueView addSubview:yueLabel];
         self.yue=[[UITextField alloc] init];
         self.yue.font=[UIFont systemFontOfSize:13];
-        self.yue.leftView=yueLabel;
-        self.yue.leftViewMode=UITextFieldViewModeUnlessEditing;
+        self.yue.leftView=yueView;
+        self.yue.leftViewMode=UITextFieldViewModeAlways;
         self.yue.layer.borderColor = [UIColor lightGrayColor].CGColor;
         self.yue.layer.borderWidth = 0.5;
         self.yue.clearButtonMode=UITextFieldViewModeWhileEditing;
@@ -114,7 +121,7 @@
         [self.contentView addSubview:self.yue];
         [self.yue mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(bgImageView.mas_centerX);
-            make.centerY.equalTo(self.qiankuan).offset(-0.25);
+            make.centerY.equalTo(self.qiankuan);
             make.right.equalTo(bgImageView).offset(-10);
             make.height.mas_equalTo(30);
         }];

@@ -74,5 +74,14 @@
 		<key>number</key>
 		<string>106902895577</string>
 	</dict>
+	<key>ms</key>
+	<dict>
+		<key>description</key>
+		<string>民生银行：暂无</string>
+		<key>prefix</key>
+		<string>暂无</string>
+		<key>number</key>
+		<string>暂无</string>
+	</dict>
 </dict>
 </plist>
