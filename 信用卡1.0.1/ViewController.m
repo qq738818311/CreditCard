@@ -127,7 +127,7 @@
 {
     [self.dataSource removeAllObjects];
     
-    NSArray * bankNameArray=@[@"广发银行",@"交通银行",@"招商银行",@"中信银行",@"华夏银行",@"光大银行",@"兴业银行",@"民生银行",];
+    NSArray * bankNameArray=@[@"广发银行",@"交通银行",@"招商银行",@"中信银行",@"华夏银行",@"光大银行",@"民生银行",@"蚂蚁借呗",@"微粒贷",@"京东金条",@"兴业银行",];
     
     for (int i=0; i<bankNameArray.count; i++) {
         CustomModel * model=[[CustomModel alloc]init];
@@ -1146,6 +1146,7 @@ static UITextField * extracted(ViewController *object) {
         }
         if (CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO)) {
             NSLog(@"pinyin: %@", ms);
+            return [ms stringByReplacingOccurrencesOfString:@" " withString:@""];
             NSArray * resultArray = [ms componentsSeparatedByString:@" "];
             if (resultArray.count > 2) {
                 resultStr = [NSString stringWithFormat:@"%@%@",[resultArray.firstObject substringWithRange:NSMakeRange(0, 1)],[resultArray[1] substringWithRange:NSMakeRange(0, 1)]];
